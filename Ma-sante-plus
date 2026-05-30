@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="google-site-verification" content="votre_code_unique">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Santé Plus - Assurance pour indépendants</title>
+    <meta name="description" content="Comparatif et conseils pour choisir la meilleure mutuelle santé en tant que freelance, auto-entrepreneur ou indépendant.">
+    <meta name="theme-color" content="#0f2b3d">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg:#f0f4f8; --surface:#ffffff; --surface-2:#edf2f7; --text:#1e293b; --muted:#64748b;
+            --brand:#1e4a76; --brand-2:#0f2b3d; --brand-accent:#3b82f6; --border:#dbe4ee;
+            --shadow:0 10px 30px rgba(15,23,42,.08); --shadow-lg:0 20px 50px rgba(15,23,42,.12);
+            --radius:18px; --radius-sm:12px; --max:1200px;
+            --success:#10b981; --warning:#f59e0b; --error:#ef4444;
+        }
+        *{box-sizing:border-box}
+        html{scroll-behavior:smooth}
+        body{margin:0;font-family:'Inter',Segoe UI,Tahoma,Geneva,Verdana,sans-serif;line-height:1.65;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+        a{color:inherit;text-decoration:none}
+        a:hover{text-decoration:underline}
+        img{max-width:100%;display:block}
+        .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+        .skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden}
+        .skip-link:focus{left:16px;top:16px;width:auto;height:auto;padding:12px 18px;background:#fff;color:#000;z-index:9999;border-radius:10px;box-shadow:var(--shadow-lg)}
+
+        header{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,var(--brand-2),var(--brand));color:#fff;backdrop-filter:saturate(180%) blur(10px);box-shadow:0 6px 24px rgba(2,6,23,.18)}
+        header .container{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 20px}
+        .logo h1{font-size:clamp(1.4rem,2.4vw,2rem);margin:0;letter-spacing:.2px;font-weight:700}
+        .logo p{margin:.2rem 0 0;color:rgba(255,255,255,.85);font-size:.95rem;font-weight:500}
+
+        nav{display:flex;gap:.5rem;flex-wrap:wrap}
+        .tab-btn{appearance:none;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:#fff;font-size:.95rem;padding:.75rem 1.1rem;border-radius:999px;cursor:pointer;transition:all .25s ease;font-weight:500}
+        .tab-btn:hover{transform:translateY(-2px);background:rgba(255,255,255,.15);box-shadow:0 4px 12px rgba(0,0,0,.15)}
+        .tab-btn.active{background:#fff;color:var(--brand-2);border-color:#fff;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.2)}
+
+        .page{display:none;animation:fadeIn .3s ease}
+        .page.active-page{display:block}
+        @keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+
+        .hero{background:linear-gradient(180deg,#fff,#f8fbff);border:1px solid var(--border);border-radius:24px;padding:clamp(1.8rem,3vw,3rem);margin:1.5rem 0 2.5rem;box-shadow:var(--shadow);text-align:center}
+        .hero h1{margin:0 0 .75rem;color:var(--brand);font-size:clamp(2rem,4vw,3.2rem);line-height:1.15;font-weight:700}
+        .hero p{margin:0;color:var(--muted);font-size:1.1rem;max-width:700px;margin:0 auto 1.5rem}
+        .cta-button{display:inline-block;background:linear-gradient(135deg,var(--brand),var(--brand-accent));color:#fff;padding:1rem 2rem;border-radius:999px;font-weight:600;font-size:1.05rem;border:none;cursor:pointer;transition:all .25s ease;box-shadow:0 8px 24px rgba(30,74,118,.3)}
+        .cta-button:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(30,74,118,.4);text-decoration:none}
+
+        .section-title{font-size:1.55rem;color:var(--brand);margin:2.5rem 0 1.2rem;padding-left:1rem;border-left:5px solid var(--brand);font-weight:700}
+
+        .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:1.5rem 0}
+        .card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;box-shadow:0 2px 12px rgba(2,6,23,.04);transition:all .25s ease}
+        .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(2,6,23,.12);border-color:var(--brand-accent)}
+        .card h3{margin:0 0 .7rem;color:var(--brand);font-size:1.25rem;font-weight:600}
+        .card p{margin:0;color:var(--muted);line-height:1.7}
+        .card-icon{font-size:2.5rem;margin-bottom:1rem}
+
+        .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:2rem 0}
+        .feature{text-align:center;padding:1.5rem;background:var(--surface);border-radius:var(--radius-sm);border:1px solid var(--border)}
+        .feature-icon{font-size:3rem;margin-bottom:.8rem}
+        .feature h4{margin:0 0 .5rem;color:var(--brand);font-size:1.1rem;font-weight:600}
+        .feature p{margin:0;color:var(--muted);font-size:.95rem}
+
+        .form-container{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow);max-width:700px;margin:2rem auto}
+        .form-group{margin-bottom:1.5rem}
+        .form-group label{display:block;margin-bottom:.5rem;font-weight:600;color:var(--text)}
+        .form-group input,.form-group select,.form-group textarea{width:100%;padding:.9rem 1rem;border:1px solid var(--border);border-radius:var(--radius-sm);font-size:1rem;font-family:inherit;transition:border-color .2s ease}
+        .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--brand-accent);box-shadow:0 0 0 3px rgba(59,130,246,.1)}
+        .form-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+        .submit-btn{background:linear-gradient(135deg,var(--brand),var(--brand-accent));color:#fff;padding:1rem 2.5rem;border:none;border-radius:999px;font-size:1.05rem;font-weight:600;cursor:pointer;transition:all .25s ease;box-shadow:0 8px 24px rgba(30,74,118,.3);width:100%}
+        .submit-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(30,74,118,.4)}
+
+        .table-container{overflow-x:auto;margin:2rem 0;border-radius:var(--radius);box-shadow:var(--shadow)}
+        table{width:100%;border-collapse:collapse;background:var(--surface)}
+        th,td{padding:1rem 1.2rem;text-align:left;border-bottom:1px solid var(--border)}
+        th{background:var(--surface-2);font-weight:600;color:var(--brand);white-space:nowrap}
+        tr:hover{background:var(--surface-2)}
+        .badge{display:inline-block;padding:.3rem .7rem;border-radius:999px;font-size:.85rem;font-weight:600}
+        .badge-success{background:#d1fae5;color:#065f46}
+        .badge-warning{background:#fef3c7;color:#92400e}
+        .badge-brand{background:#dbeafe;color:#1e4a76}
+
+        footer{background:var(--brand-2);color:#fff;padding:3rem 0;margin-top:4rem}
+        footer .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem}
+        footer h4{margin:0 0 1rem;font-size:1.1rem;font-weight:600}
+        footer p,footer li{color:rgba(255,255,255,.85);font-size:.95rem}
+        footer ul{list-style:none;padding:0;margin:0}
+        footer li{margin-bottom:.6rem}
+        footer a:hover{color:#fff;text-decoration:underline}
+        .footer-bottom{background:rgba(0,0,0,.2);padding:1.2rem 0;text-align:center;margin-top:2rem}
+        .footer-bottom p{margin:0;color:rgba(255,255,255,.7);font-size:.9rem}
+
+        @media (max-width: 768px) {
+            header .container{flex-direction:column;text-align:center}
+            nav{width:100%;justify-content:center}
+            .hero{padding:1.5rem 1rem}
+            .form-row{grid-template-columns:1fr}
+        }
+
+        :focus-visible{outline:3px solid var(--brand-accent);outline-offset:2px}
+        .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>🏥 Ma Santé Plus</h1>
+                <p>Assurance santé pour indépendants</p>
+            </div>
+            <nav role="navigation" aria-label="Navigation principale">
+                <button class="tab-btn active" data-tab="accueil">Accueil</button>
+                <button class="tab-btn" data-tab="comparatif">Comparatif</button>
+                <button class="tab-btn" data-tab="conseils">Conseils</button>
+                <button class="tab-btn" data-tab="contact">Contact</button>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content" class="container">
+        <!-- ACCUEIL -->
+        <section id="accueil" class="page active-page">
+            <div class="hero">
+                <h1>La mutuelle santé idéale pour les indépendants</h1>
+                <p>Comparez les meilleures offres d'assurance santé adaptées aux freelances, auto-entrepreneurs et indépendants. Économisez jusqu'à 30% sur votre mutuelle.</p>
+                <button class="cta-button" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Obtenir un devis gratuit</button>
+            </div>
+
+            <h2 class="section-title">Pourquoi choisir Ma Santé Plus ?</h2>
+            <div class="features">
+                <div class="feature"><div class="feature-icon">💰</div><h4>Économies garanties</h4><p>Jusqu'à 30% d'économie sur votre mutuelle santé</p></div>
+                <div class="feature"><div class="feature-icon">⚡</div><h4>Devis en 2 minutes</h4><p>Comparatif rapide et personnalisé</p></div>
+                <div class="feature"><div class="feature-icon">🎯</div><h4>Spécial indépendants</h4><p>Offres adaptées à votre statut</p></div>
+                <div class="feature"><div class="feature-icon">🛡️</div><h4>Couverture complète</h4><p>Remboursements optimaux</p></div>
+            </div>
+
+            <h2 class="section-title">Nos partenaires de confiance</h2>
+            <div class="card-grid">
+                <div class="card"><div class="card-icon">🏆</div><h3>AssurSanté Pro</h3><p>La référence pour les indépendants avec 95% de satisfaction client et des remboursements jusqu'à 300% du BO.</p><span class="badge badge-success">À partir de 45€/mois</span></div>
+                <div class="card"><div class="card-icon">⭐</div><h3>FlexiMutuelle</h3><p>Contrats modulables mois par mois, idéal pour les auto-entrepreneurs. Prise en charge immédiate.</p><span class="badge badge-brand">À partir de 38€/mois</span></div>
+                <div class="card"><div class="card-icon">🌟</div><h3>SantéLibre</h3><p>Remboursements premium dental et optique. Réseau de 15 000 professionnels de santé partenaires.</p><span class="badge badge-warning">À partir de 52€/mois</span></div>
+            </div>
+        </section>
+
+        <!-- COMPARATIF -->
+        <section id="comparatif" class="page">
+            <div class="hero"><h1>Comparatif des mutuelles santé</h1><p>Comparez facilement les meilleures offres pour les indépendants et trouvez la mutuelle adaptée à vos besoins.</p></div>
+            <h2 class="section-title">Tableau comparatif complet</h2>
+            <div class="table-container">
+                <table>
+                    <thead><tr><th>Assureur</th><th>Prix/mois</th><th>Remboursement</th><th>Dental</th><th>Optique</th><th>Avis</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>AssurSanté Pro</strong><br><span class="badge badge-success">Meilleur rapport</span></td><td>45€</td><td>250% BO</td><td>300%</td><td>200%</td><td>⭐⭐⭐⭐⭐ 4.8/5</td></tr>
+                        <tr><td><strong>FlexiMutuelle</strong><br><span class="badge badge-brand">Prix le plus bas</span></td><td>38€</td><td>200% BO</td><td>250%</td><td>150%</td><td>⭐⭐⭐⭐ 4.5/5</td></tr>
+                        <tr><td><strong>SantéLibre</strong><br><span class="badge badge-warning">Premium</span></td><td>52€</td><td>300% BO</td><td>400%</td><td>300%</td><td>⭐⭐⭐⭐⭐ 4.9/5</td></tr>
+                        <tr><td><strong>IndéMutuelle</strong></td><td>42€</td><td>220% BO</td><td>280%</td><td>180%</td><td>⭐⭐⭐⭐ 4.3/5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 class="section-title">Critères de choix importants</h2>
+            <div class="card-grid">
+                <div class="card"><h3>📊 Niveau de remboursement</h3><p>Privilégiez au moins 200% du BO pour une couverture correcte. Les formules premium atteignent 300%.</p></div>
+                <div class="card"><h3>🦷 Dental & Optique</h3><p>Vérifiez les plafonds annuels pour les soins dentaires (couronnes, implants) et optique (lunettes).</p></div>
+                <div class="card"><h3>⏰ Délais de carence</h3><p>Les meilleures offres n'ont pas de délai de carence, prise en charge immédiate garantie.</p></div>
+                <div class="card"><h3>🔄 Flexibilité</h3><p>Possibilité de modifier votre contrat ou de le résilier sans frais important pour les indépendants.</p></div>
+            </div>
+        </section>
+
+        <!-- CONSEILS -->
+        <section id="conseils" class="page">
+            <div class="hero"><h1>Conseils pour choisir votre mutuelle</h1><p>Toutes les astuces et conseils pour optimiser votre assurance santé en tant qu'indépendant.</p></div>
+            <h2 class="section-title">Guides pratiques</h2>
+            <div class="card-grid">
+                <div class="card"><div class="card-icon">📖</div><h3>Comment comparer les mutuelles ?</h3><p>Guide complet : comparez les remboursements, les délais de carence, les plafonds annuels et les services inclus. Ne vous fiez pas uniquement au prix.</p></div>
+                <div class="card"><div class="card-icon">💡</div><h3>Économiser sur sa mutuelle</h3><p>5 stratégies pour réduire votre facture : groupez vos garanties, négociez, choisissez un réseau de soins, optimisez votre niveau de couverture.</p></div>
+                <div class="card"><div class="card-icon">⚖️</div><h3>Statut juridique et mutuelle</h3><p>Auto-entrepreneur, EI, EURL ? Chaque statut a ses spécificités. Découvrez quelles garanties sont obligatoires et lesquelles sont recommandées.</p></div>
+                <div class="card"><div class="card-icon">🏥</div><h3>Remboursements Sécurité Sociale</h3><p>Comprendre le BO (Base de remboursement), les dépassements d'honoraires, et comment votre mutuelle complète la Sécu à 100%.</p></div>
+                <div class="card"><div class="card-icon">📅</div><h3>Quand souscrire ?</h3><p>Idéalement dans les 3 mois suivant la création de votre entreprise. Évitez les délais de carence en anticipant votre souscription.</p></div>
+                <div class="card"><div class="card-icon">🔍</div><h3>Vérifier la réputation</h3><p>Lisez les avis clients, vérifiez le taux de satisfaction, la réactivité du service client et la rapidité des remboursements.</p></div>
+            </div>
+            <h2 class="section-title">FAQ - Questions fréquentes</h2>
+            <div class="card"><h3>💬 Une mutuelle est-elle obligatoire pour les indépendants ?</h3><p>Non, ce n'est pas obligatoire depuis 2016, mais fortement recommandée. La Sécurité Sociale ne rembourse qu'en moyenne 70% des frais de santé.</p></div>
+            <div class="card" style="margin-top:1.5rem"><h3>💬 Quel budget prévoir pour une mutuelle indépendante ?</h3><p>Comptez entre 35€ et 60€ par mois pour une couverture complète. Le prix varie selon l'âge, la zone géographique et le niveau de garanties.</p></div>
+            <div class="card" style="margin-top:1.5rem"><h3>💬 Puis-je déduire ma mutuelle de mes impôts ?</h3><p>Oui, en tant qu'indépendant, vous pouvez déduire votre mutuelle de vos revenus professionnels dans certaines limites (déduction fiscale possible).</p></div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="page">
+            <div class="hero"><h1>Obtenez votre devis gratuit</h1><p>Remplissez le formulaire ci-dessous et recevez une réponse personnalisée en moins de 24h.</p></div>
+            <div class="form-container">
+                <form id="devis-form">
+                    <div class="form-row"><div class="form-group"><label for="nom">Nom *</label><input type="text" id="nom" name="nom" required></div><div class="form-group"><label for="prenom">Prénom *</label><input type="text" id="prenom" name="prenom" required></div></div>
+                    <div class="form-row"><div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" required></div><div class="form-group"><label for="telephone">Téléphone</label><input type="tel" id="telephone" name="telephone"></div></div>
+                    <div class="form-row"><div class="form-group"><label for="statut">Statut juridique *</label><select id="statut" name="statut" required><option value="">Sélectionnez...</option><option value="auto-entrepreneur">Auto-entrepreneur</option><option value="micro-entrepreneur">Micro-entrepreneur</option><option value="EI">Entreprise Individuelle (EI)</option><option value="EURL">EURL</option><option value="SASU">SASU</option><option value="other">Autre</option></select></div><div class="form-group"><label for="age">Âge *</label><input type="number" id="age" name="age" min="18" max="80" required></div></div>
+                    <div class="form-group"><label for="code-postal">Code postal *</label><input type="text" id="code-postal" name="code-postal" pattern="[0-9]{5}" required></div>
+                    <div class="form-group"><label for="besoins">Vos besoins spécifiques</label><textarea id="besoins" name="besoins" rows="4" placeholder="Ex: soins dentaires importants, optique, médecines douces, suivi grossesse..."></textarea></div>
+                    <div class="form-group"><label style="display:flex;align-items:center;gap:.5rem;cursor:pointer"><input type="checkbox" name="cgv" required style="width:auto"> J'accepte les <a href="#" style="text-decoration:underline">CGV</a> et la <a href="#" style="text-decoration:underline">politique de confidentialité</a></label></div>
+                    <button type="submit" class="submit-btn">Recevoir mon devis gratuit</button>
+                </form>
+            </div>
+            <h2 class="section-title">Contact direct</h2>
+            <div class="card-grid">
+                <div class="card"><h3>📞 Téléphone</h3><p><strong>01 23 45 67 89</strong><br>Du lundi au vendredi, 9h-18h</p></div>
+                <div class="card"><h3>📧 Email</h3><p><strong>contact@masanteplus.fr</strong><br>Réponse en moins de 24h</p></div>
+                <div class="card"><h3>🏢 Adresse</h3><p>12 Rue de la Santé<br>75001 Paris, France</p></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div><h4>🏥 Ma Santé Plus</h4><p>Le comparatif de mutuelles santé spécialisé pour les indépendants, freelances et auto-entrepreneurs.</p></div>
+            <div><h4>Liens rapides</h4><ul><li><a href="#" data-tab="accueil">Accueil</a></li><li><a href="#" data-tab="comparatif">Comparatif</a></li><li><a href="#" data-tab="conseils">Conseils</a></li><li><a href="#" data-tab="contact">Devis gratuit</a></li></ul></div>
+            <div><h4>Légal</h4><ul><li><a href="#">Mentions légales</a></li><li><a href="#">Politique de confidentialité</a></li><li><a href="#">CGV</a></li><li><a href="#">Cookies</a></li></ul></div>
+            <div><h4>Réseaux sociaux</h4><ul><li><a href="#">Facebook</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Twitter/X</a></li><li><a href="#">Instagram</a></li></ul></div>
+        </div>
+        <div class="footer-bottom"><div class="container"><p>© 2026 Ma Santé Plus. Tous droits réservés. Site à titre informatif, pas un conseiller en assurance.</p></div></div>
+    </footer>
+
+    <script>
+        // Déclaration globale pour le footer
+        let tabBtns, pages;
+        document.addEventListener('DOMContentLoaded', function() {
+            tabBtns = document.querySelectorAll('.tab-btn');
+            pages = document.querySelectorAll('.page');
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.dataset.tab;
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    pages.forEach(p => p.classList.remove('active-page'));
+                    this.classList.add('active');
+                    document.getElementById(tabId).classList.add('active-page');
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                });
+            });
+            document.getElementById('devis-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('✅ Merci ! Votre devis a été envoyé. Vous recevrez une réponse sous 24h.');
+                this.reset();
+            });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {threshold: 0.1});
+            document.querySelectorAll('.card, .feature').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.5s ease';
+                observer.observe(el);
+            });
+        });
+        // Gestion des clics dans le footer
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('footer a[data-tab]');
+            if (link && tabBtns) {
+                e.preventDefault();
+                const tabId = link.getAttribute('data-tab');
+                const targetBtn = Array.from(tabBtns).find(btn => btn.dataset.tab === tabId);
+                if (targetBtn) targetBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
